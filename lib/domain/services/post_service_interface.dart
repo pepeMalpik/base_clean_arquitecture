@@ -1,0 +1,3 @@
+abstract class PostServiceInterface {
+  fetchPosts() {}
+}
