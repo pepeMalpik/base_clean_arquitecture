@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:posts_app/domain/entities/post.dart';
-import 'package:posts_app/domain/repositories/post_repository_interface.dart';
-import 'package:posts_app/networking/api_response.dart';
+import 'package:posts_app/core/networking/api_response.dart';
+import 'package:posts_app/features/list_posts/domain/entities/post.dart';
+import 'package:posts_app/features/list_posts/domain/user_cases/fetch_posts_uc.dart';
 
 class PostProvider with ChangeNotifier {
-  final PostRepositoryInterface _postRepository;
+  final FetchPostsUC _fetchPostsUC;
+
   ApiResponse<List<Post>> _posts;
   ApiResponse<List<Post>> get posts => _posts;
 
-  PostProvider(this._postRepository) {
+  PostProvider(this._fetchPostsUC) {
     _posts = ApiResponse.completed([]);
   }
 
@@ -16,7 +17,7 @@ class PostProvider with ChangeNotifier {
     _posts = ApiResponse.loading('fetching posts...');
     notifyListeners();
     try {
-      List<Post> posts = await _postRepository.fetchPosts();
+      List<Post> posts = await _fetchPostsUC.invoke();
       _posts = ApiResponse.completed(posts);
       notifyListeners();
     } catch (e) {

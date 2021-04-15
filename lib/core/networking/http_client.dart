@@ -1,10 +1,10 @@
 import 'dart:async';
-
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
-import 'package:posts_app/networking/api_base.dart';
-import 'package:posts_app/networking/api_exceptions.dart';
+
+import 'api_base.dart';
+import 'api_exceptions.dart';
 
 class HttpClient {
   static final HttpClient _singleton = HttpClient();

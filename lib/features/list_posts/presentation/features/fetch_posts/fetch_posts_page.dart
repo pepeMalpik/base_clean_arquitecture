@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
-import 'package:posts_app/domain/entities/post.dart';
-import 'package:posts_app/networking/api_response.dart';
-import 'package:posts_app/presentation/features/fetch_posts/widgets/emply_list.dart';
-import 'package:posts_app/presentation/features/fetch_posts/widgets/posts_list.dart';
-import 'package:posts_app/presentation/providers/post_provider.dart';
+import 'package:posts_app/core/networking/api_response.dart';
+import 'package:posts_app/features/list_posts/domain/entities/post.dart';
+import 'package:posts_app/features/list_posts/presentation/features/fetch_posts/widgets/emply_list.dart';
+import 'package:posts_app/features/list_posts/presentation/features/fetch_posts/widgets/posts_list.dart';
+import 'package:posts_app/features/list_posts/presentation/providers/post_provider.dart';
 import 'package:provider/provider.dart';
 
 class FetchPostsPage extends StatefulWidget {
